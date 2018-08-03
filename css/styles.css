@@ -153,6 +153,12 @@ nav h1 a {
   flex-basis: 33%;
 }
 
+.filter-options select:focus {
+  outline: 5px solid #f08080;
+  border-radius: 10px;
+
+}
+
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
   background-color: #f3f3f3;
@@ -222,13 +228,14 @@ nav h1 a {
 }
 .inside #maincontent {
   flex-wrap: nowrap;
-  margin-top: 45px;
+  margin-top: 79px;
   height: 100%;
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
   height: 100%;
   order: 3;
+  max-height: initial;
 }
 .inside #map {
   background-color: #ccc;
