@@ -119,6 +119,10 @@ updateRestaurants = () => {
       console.error(error);
     } else {
       resetRestaurants(restaurants);
+      console.log(restaurants);
+      if(restaurants.length === 0) {
+        noRestaurantsToShow();
+      }
       fillRestaurantsHTML();
     }
   })
@@ -188,6 +192,21 @@ createRestaurantHTML = (restaurant) => {
   li.append(more)
 
   return li
+}
+
+/**
+ * No restaurants to show.
+ */
+noRestaurantsToShow = (restaurant) => {
+  const ul = document.getElementById('restaurants-list');
+
+  const li = document.createElement('li');
+  const p = document.createElement('p');
+
+  p.innerText = "No restaurants matched the filter."
+
+  li.append(p);
+  ul.append(li);
 }
 
 /**
