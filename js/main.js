@@ -4,14 +4,33 @@ let restaurants,
 var newMap
 var markers = []
 
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
+ * Also register a Service Worker for cache handling.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
   initMap(); // added 
   fetchNeighborhoods();
   fetchCuisines();
+  registerServiceWorker();
 });
+
+
+registerServiceWorker = () => {
+  if(!('serviceWorker' in navigator)) {
+    console.log('Service Worker is not supported in thie browser')
+    return;
+  }
+  
+  navigator.serviceWorker.register('/sw.js')
+  .then(function() {
+    console.log("Registered!");
+  }, function() {
+    console.log("FAIL!");
+  });
+  
+}
 
 /**
  * Fetch all neighborhoods and set their HTML.
