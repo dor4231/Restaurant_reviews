@@ -119,7 +119,6 @@ updateRestaurants = () => {
       console.error(error);
     } else {
       resetRestaurants(restaurants);
-      console.log(restaurants);
       if(restaurants.length === 0) {
         noRestaurantsToShow();
       }
